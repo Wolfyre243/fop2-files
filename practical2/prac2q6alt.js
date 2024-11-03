@@ -1,18 +1,25 @@
 const readline = require('readline-sync');
 
 function memory() {
-    const cache = {};
+    const cache = [];
 
     return {
         userName(myName) {
-            if (cache.hasOwnProperty(myName)) {
-                return cache[myName];
-            } else {
-                cache[myName] = Math.floor(Math.random() * 100);
+            const user = cache.find(usr => usr.name === myName);
+
+            if (!user) {
+                cache.push({
+                    name: myName,
+                    number: Math.floor(Math.random() * 100) + 1, // 1 to 100
+                });
                 return "User not found, creating number...";
-            };
+            } else {
+                return user.number
+            }; 
         },
-        getNumber(myName) { return cache[myName]; }
+        getNumber(myName) { 
+            return cache.find(usr => usr.name === myName).number;
+        }
     };
 };
 
