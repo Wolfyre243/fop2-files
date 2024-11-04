@@ -5,14 +5,6 @@ function memory() {
 
   return {  //return an object
     userName(myName) {
-        // let user = null; // placeholder variable
-
-        // for (let i = 0; i < names.length; i++) {
-        //     if (names[i].name == myName) {
-        //         user = names[i];
-        //     }
-        // };
-
         const user = names.find(currentUser => currentUser.name == myName);
 
         // AFTER the for loop
