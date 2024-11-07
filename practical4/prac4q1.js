@@ -34,8 +34,8 @@ const fruits2 = fruits.filter(item => item === "Pear" || item ==="Watermelon");
 fruits2.forEach(item => { console.log(item) });
  
 
-// sort the array to new array (name of array : fruits_sorted) 
-const fruits_sorted = fruits.sort();
+// sort the array to new array (name of array : fruits_sorted)  
+const fruits_sorted = fruits.toSorted();
  
 
 // Print the fruits_sorted array 
