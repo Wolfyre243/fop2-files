@@ -12,12 +12,12 @@ for (const key in phoneContact) {
 }
 
 console.log(myPhoneBook.get("ChongCS"));
-myPhoneBook.forEach((number, lecturer) => console.log(lecturer, ':', number));
+myPhoneBook.forEach((number, lecturer) => console.log(lecturer + '\t: ' + number));
 console.log(myPhoneBook.has('LimHT'));
 console.log(myPhoneBook.has('TanHT'));
 
 myPhoneBook.delete('LimHT');
-myPhoneBook.forEach((number, lecturer) => console.log(lecturer, ':', number));
+myPhoneBook.forEach((number, lecturer) => console.log(lecturer + '\t: ' + number));
 
 // myPhoneBook.clear()
 
