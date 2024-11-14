@@ -1,22 +1,20 @@
 const car_sales = require('./car_sales')
 
-function Car(manufacturer, model, salesPrice, resalePrice) {
-    this.manufacturer = manufacturer;
-    this.model = model;
-    this.salesPrice = salesPrice;
-    this.resalePrice = resalePrice;
-}
-
-const carArr = []
-for (let i = 0; i < car_sales.manufacturer.length; i++) {
-    carArr.push(new Car(
-        car_sales.manufacturer[i],
-        car_sales.model[i],
-        car_sales.salesPrice[i],
-        car_sales.resalePrice[i]
-    ))
+function displayAll(carArr) {
+    carArr.forEach(car => {
+        console.log(`${car.maufacturer} Model ${car.model} S$${car.salesPrice} S$${car.resalePrice}`)
+    })
 };
 
-carArr.forEach(car => {
-    console.log(`${car.manufacturer} Model ${car.model} S$${car.salesPrice} S$${car.resalePrice}`)
-})
+function sortByResalePrice(carArr) {
+    const sortedArr = carArr.toSorted((a, b) => a.resalePrice - b.resalePrice);
+
+    const lowest = sortedArr[0];
+    const highest = sortedArr[sortedArr.length - 1];
+
+    displayAll(sortedArr);
+    console.log(
+        `Lowest Price\n${lowest.maufacturer} ${lowest.model} S$${lowest.resalePrice}\nHighest Price\n${highest.maufacturer} ${highest.model} S$${highest.resalePrice}`);
+}
+
+sortByResalePrice(car_sales);

@@ -1,3 +1,9 @@
 const pubHols = {
-    "Chinese New Year": [""]
+    "Chinese New Year": [""],
+
+    checkHolidays: function(holidayName) {
+        if (condition) {
+            
+        }
+    }
 }

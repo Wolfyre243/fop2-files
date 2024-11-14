@@ -19,15 +19,15 @@ sharePrice01102023.push(12.33);
 accountHolder = {...accountHolder, tradingCredit: 200000};
 console.log(accountHolder)
 
-// console.log(`Min for sharePrice01102023: ${Math.min(...sharePrice01102023)}`);
-// console.log(`Max for sharePrice01102023: ${Math.max(...sharePrice01102023)}`);
-// console.log(`Min for sharePrice02102023: ${Math.min(...sharePrice02102023)}`);
-// console.log(`Max for sharePrice02102023: ${Math.max(...sharePrice02102023)}`);
+console.log(`Min for sharePrice01102023: ${Math.min(...sharePrice01102023)}`);
+console.log(`Max for sharePrice01102023: ${Math.max(...sharePrice01102023)}`);
+console.log(`Min for sharePrice02102023: ${Math.min(...sharePrice02102023)}`);
+console.log(`Max for sharePrice02102023: ${Math.max(...sharePrice02102023)}`);
 
-console.log(`Min for sharePrice01102023: ${sharePrice01102023.toSorted((a, b) => a - b)[0]}`);
-console.log(`Max for sharePrice01102023: ${sharePrice01102023.toSorted((a, b) => b - a)[0]}`);
-console.log(`Min for sharePrice02102023: ${sharePrice02102023.toSorted((a, b) => a - b)[0]}`);
-console.log(`Max for sharePrice02102023: ${sharePrice02102023.toSorted((a, b) => b - a)[0]}`);
+// console.log(`Min for sharePrice01102023: ${sharePrice01102023.toSorted((a, b) => a - b)[0]}`);
+// console.log(`Max for sharePrice01102023: ${sharePrice01102023.toSorted((a, b) => b - a)[0]}`);
+// console.log(`Min for sharePrice02102023: ${sharePrice02102023.toSorted((a, b) => a - b)[0]}`);
+// console.log(`Max for sharePrice02102023: ${sharePrice02102023.toSorted((a, b) => b - a)[0]}`);
 
 
 console.log('Total Shared: ', sharesTraded.reduce((a, c) => a + c, 0));
