@@ -29,8 +29,11 @@ let publicHolidays2024 = {
                 additionalHoliday.setDate(date.getDate()+1) //returns to extra holiday on Monday 
 
             }
-        });
-
+           
+        
+        
+    });
+       
         // Check if the holiday name exists in the object
         if (!this[holidayName]) {
             console.log("Holiday not found.");
@@ -39,7 +42,8 @@ let publicHolidays2024 = {
             dateArr.push(additionalHoliday.toDateString())
             console.log(dateArr)
         }
-       
+
+
     }
 
 
