@@ -13,8 +13,7 @@ function sortByResalePrice(carArr) {
     const highest = sortedArr[sortedArr.length - 1];
 
     displayAll(sortedArr);
-    console.log(
-        `Lowest Price\n${lowest.maufacturer} ${lowest.model} S$${lowest.resalePrice}\nHighest Price\n${highest.maufacturer} ${highest.model} S$${highest.resalePrice}`);
+    console.log(`Lowest Price\n${lowest.maufacturer} ${lowest.model} S$${lowest.resalePrice}\nHighest Price\n${highest.maufacturer} ${highest.model} S$${highest.resalePrice}`);
 }
 
 sortByResalePrice(car_sales);
