@@ -6,14 +6,35 @@ function displayAll(carArr) {
     })
 };
 
-function sortByResalePrice(carArr) {
-    const sortedArr = carArr.toSorted((a, b) => a.resalePrice - b.resalePrice);
+function sortByResalePrice(carArr, displayfn) {
+    const sortedArr = carArr.toSorted((a, b) => parseInt(a.resalePrice) - parseInt(b.resalePrice));
 
     const lowest = sortedArr[0];
     const highest = sortedArr[sortedArr.length - 1];
 
-    displayAll(sortedArr);
+    // displayfn(sortedArr);
     console.log(`Lowest Price\n${lowest.maufacturer} ${lowest.model} S$${lowest.resalePrice}\nHighest Price\n${highest.maufacturer} ${highest.model} S$${highest.resalePrice}`);
 }
 
-sortByResalePrice(car_sales);
+function displayAllByManufacturer(carArr, manufacturer) {
+    const filteredArr = carArr.filter(car => car.maufacturer === manufacturer);
+
+    displayAll(filteredArr);
+}
+
+const cache = {};
+
+car_sales.forEach(car => {
+    if (!cache.hasOwnProperty(car.maufacturer)) {
+        cache[car.maufacturer] = 1;
+    } else {
+        cache[car.maufacturer]++;
+    }
+});
+
+for (const manufacturer in cache) {
+    console.log(`${manufacturer} number of car ${cache[manufacturer]}`)
+}
+
+// sortByResalePrice(car_sales);
+// displayAllByManufacturer(car_sales, 'BMW')
