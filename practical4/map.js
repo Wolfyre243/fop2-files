@@ -1,6 +1,8 @@
-const stockPrices = [32.11, 22.12, 45.12, 31.20, 32.50, 44.12];
-
-stockPrices.forEach(element => element * 100);
+const obj = {
+    hi: 1,
+    hello: 2,
+    hrufuieui: 3
+};
 
 const theMap = new Map();
 theMap.set('hi', 1)

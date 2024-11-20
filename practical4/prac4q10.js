@@ -22,7 +22,11 @@ function displayAllByManufacturer(carArr, manufacturer) {
     displayAll(filteredArr);
 }
 
-const cache = {};
+const cache = {
+    BMW: 2,
+    Audi: 2,
+    Plymoth: 3
+};
 
 car_sales.forEach(car => {
     if (!cache.hasOwnProperty(car.maufacturer)) {
@@ -33,8 +37,8 @@ car_sales.forEach(car => {
 });
 
 for (const manufacturer in cache) {
-    console.log(`${manufacturer} number of car ${cache[manufacturer]}`)
+    console.log(`${manufacturer} number of car ${cache[manufacturer]}`);
 }
 
 // sortByResalePrice(car_sales);
-// displayAllByManufacturer(car_sales, 'BMW')
+//displayAllByManufacturer(car_sales, 'BMW')
