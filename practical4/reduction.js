@@ -1,21 +1,4 @@
-const carSaleArray = require("./car_sales")
+let sharePrice01102023 = [12.3, 11.2, 10.8, 10.5, 11.5, 12.50, 9.50, 11.55]; 
+let sharePrice02102023 = [10.3, 9.2, 9.2, 8.3, 9.5, 11.10, 9.90, 10.25]; 
 
-function countCarsByManufacturer(array) {
-    let manufacturersObj = {};
-  
-    array.forEach(car => {
-        let manufacturer = car.maufacturer;
-        if (!manufacturersObj[manufacturer]) {
-            manufacturersObj[manufacturer] = 1;
-        } else {
-            manufacturersObj[manufacturer]++;
-        }
-    });
-  
-    // print out manufacturers
-    for (let manufacturer in manufacturersObj) {
-      console.log(manufacturer + " number of cars " + manufacturersObj [manufacturer]);
-    }
-  }
-  
-  countCarsByManufacturer(carSaleArray);
+sharePrice01102023.reduce((accumulator, currentValue) => accumulator + currentValue, 234829);
