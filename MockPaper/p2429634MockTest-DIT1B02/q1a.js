@@ -1,15 +1,15 @@
 /* 
 	Question 1a
-	Name: Tan Chan Lim
-	Admin No: p1234567
-	Class: DIT1B01
+	Name: Zhang Junkai
+	Admin No: p2429634
+	Class: DIT1B02
 	
 */
 
-x = 2 * 7 ;
+x = 2 * 7;
 
 function multiplyTen (z) {
-  x  = z * 10 ;
+  const x  = z * 10 ;
   return x;
 }
 
