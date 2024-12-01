@@ -9,6 +9,10 @@
 // All Vehicle Population data
 const allVehicleData = require('./dataVehicleInfo');
 
+allVehicleData.forEach(elem => {
+	elem.year = parseInt(elem.year)
+})
+
 /*
     TODO: Fill up the code part a
 */
@@ -32,3 +36,5 @@ console.log(`Last set of sort by year\n${lastVehicle.year} ${lastVehicle.categor
 allVehicleData
 	.filter(vehicle => vehicle.type === 'Private cars')
 	.forEach(vehicle => console.log(`${vehicle.year} ${vehicle.category} ${vehicle.number}`));
+
+

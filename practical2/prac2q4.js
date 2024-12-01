@@ -55,13 +55,19 @@ const infoApp = () => {
         greet() {
             const salutation = student.gender == '' ? '' : student.gender == 'M' ? 'Mr.' : 'Ms.';
 
-            const currentHour = (new Date()).getHours();
+            const date = new Date();
+            const currentHour = date.getHours();
+            const currentMinute = date.getMinutes();
+
             let timeGreeting = '';
-            if (currentHour >= 0 && currentHour < 12) {
+
+            if (currentHour < 12) {
                 timeGreeting = 'Good Morning'
-            } else if (currentHour >= 12 && currentHour < 18) {
+            } else if (currentHour < 17) {
                 timeGreeting = 'Good Afternoon'
-            } else if (currentHour >= 18 && currentHour < 24) {
+            } else if (currentHour == 17 && currentMinute == 0) {
+                timeGreeting = 'Good Afternoon'
+            } else if (currentHour < 24) {
                 timeGreeting = 'Good Evening'
             }
 

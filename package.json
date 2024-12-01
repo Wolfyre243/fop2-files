@@ -1,0 +1,15 @@
+{
+  "name": "fop2-files",
+  "version": "1.0.0",
+  "main": "sample3.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
