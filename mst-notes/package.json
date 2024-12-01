@@ -1,7 +1,7 @@
 {
-  "name": "fop2-files",
+  "name": "mst-notes",
   "version": "1.0.0",
-  "main": "sample3.js",
+  "main": "bonk.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
