@@ -6,15 +6,15 @@ const workers = [
   { id: 1, name: "Anita", age: 22, position: "Junior Dev", password: "thequickBrownFox" },
   { id: 2, name: "Wolfyre", age: 25, position: "Senior Dev", password: "monkey" },
   { id: 3, name: "Rachel", age: 30, position: "DevOps Engineer", password: "bigFoot" },
-  { id: 4, name: "Jamie", age: 22, position: "UX Designer", password: "efdrfEfCw" },
+  { id: 4, name: "Jamie", age: 28, position: "UX Designer", password: "efdrfEfCw" },
   { id: 5, name: "Ethan", age: 35, position: "Senior Dev", password: "thvfuvw" },
   { id: 6, name: "Emily", age: 29, position: "Junior Dev", password: "bear" },
   { id: 7, name: "Liam", age: 32, position: "UX Designer", password: "bigGyaTT" },
-  { id: 8, name: "Noah", age: 22, position: "DevOps Engineer", password: "stinggger" },
+  { id: 8, name: "Noah", age: 26, position: "DevOps Engineer", password: "stinggger" },
   { id: 9, name: "Olivia", age: 27, position: "Intern", password: "lapsing" },
-  { id: 10, name: "Mason", age: 30, position: "Intern", password: "smoked" },
-  { id: 11, name: "Charlotte", age: 30, position: "DevOps Engineer", password: "iforgot" },
-  { id: 12, name: "Ava", age: 32, position: "Junior Dev", password: "theonlynumericpassword123" },
+  { id: 10, name: "Mason", age: 24, position: "Intern", password: "smoked" },
+  { id: 11, name: "Charlotte", age: 31, position: "DevOps Engineer", password: "iforgot" },
+  { id: 12, name: "Ava", age: 23, position: "Junior Dev", password: "theonlynumericpassword123" },
 ];
 
 const jobPositions = [
@@ -47,6 +47,22 @@ const jobPositions = [
 
 // ==================================================================================================================================
 
+/**
+ * ----------------------------- ASSIGNMENT -----------------------------
+ * Your task is to create a terminal for employees at the Shien Factory.
+ * This terminal will be equipped with many functionalities.
+ * Part of the code has been given to you; your job is to fill in the rest.
+ * 
+ * START FROM the MAIN LOOP found all the way below.
+ * NEXT work on the verifyUser function
+ * NEXT work on the System function
+ * NEXT work on the Search Utility function 
+ * | work on first-class functions for the search utility function.
+ * 
+ * Follow the steps and you SHOULD be fine; I threw in some hints anyways.
+ * With that being said, good luck soldier.
+ */
+
 // 1. Verify if user is permitted to enter the system.
 /**
  * 
@@ -57,7 +73,7 @@ const jobPositions = [
 
 function verifyUser(username, password) {
     // CODE HERE
-    return workers.find(user => user.name == username && user.password == password);
+    // Hint: use .find to search thru the workers array to find a user with matching username and pw
 }
 
 // 2. Write a higher order function that takes in a callback function
@@ -67,74 +83,54 @@ function verifyUser(username, password) {
 
 function System(action, user) {
     // !2a. Check user permissions. Interns and Junior Devs are not allowed to analyse.
-    if ((user.position == 'Junior Dev' || user.position == 'Intern') && action == 'analyse') {
-        return console.log(`You are a ${user.position}. Know your place.`);
-    }
-
-    action();
+    // Hint: Use an if else statement
+    // If user not permitted, console.log and return
+    // Else invoke the 'action' callback parameter.
 }
 
-// 3. Write a function that allows user to use many different searching methods.
+// 3. Write a function that allows user to use many different searching methods. (search)
+// Write the different searching methods below (searchByUsername, searchByPosition, searchByAge)
 // Afterwards, display information about the user(s) in the format
 // <username>: <position>
 
 const searchByUsername = (username) => {
     // CODE HERE
-    workers
-    .filter(user => user.name == username)
-    .forEach(user => console.log(`${user.name}: ${user.position}`));
 }
 
 const searchByPosition = (position) => {
     // CODE HERE
-    workers
-    .filter(user => user.position == position)
-    .forEach(user => console.log(`${user.name}: ${user.position}`));
 }
 
 const searchByAge = (age) => {
     // CODE HERE
-    workers
-    .filter(user => user.age == age)
-    .forEach(user => console.log(`${user.name}: ${user.position}`));
 }
 
+// Main utility function to invoke the other 3 first-class functions above.
 function search() {
     console.clear();
     // And this is the sub-menu for the search utility
     // We are expecting a numeric input, btw
     const userInput = input.questionInt('What would you like to search by?\n1. Search by username\n2. Search by position\n3. Search by age\n>>> ');
 
+    // I didn't use a map here to avoid confusion
     if (userInput == 1) {
-        const username = input.question('Enter the username to search by: ');
-        console.log('Searching by username...');
-        searchByUsername(username);
+        // Prompt the user to enter the username they want to search by 
+        // Then invoke the searchByUsername function
     } else if (userInput == 2) {
-        const position = input.question('Enter the position to search by: ');
-        console.log('Searching by position...');
-        searchByUsername(position);
+        // Prompt the user to enter the position they want to search by 
+        // Then invoke the searchByPosition function
     } else if (userInput == 3) {
-        const age = input.questionInt('Enter the age to search by: ');
-        console.log('Searching by age...');
-        searchByUsername(age);
+        // Prompt the user to enter the age they want to search by 
+        // Then invoke the searchByAge function
     } else {
         console.log('Invalid input. You suck. Exiting program...')
     }
 }
 
-// This is gonna be for part 2
-// function inspect() {
-//     // CODE HERE
-//     console.log('hie')
-// }
-// function analyse() {
-//     // CODE HERE
-//     console.log('hiw')
-// }
-
 // MAIN LOOP
 while (true) {
-    console.log('\n========LOGIN========')
+    console.log('\n========LOGIN========');
+
     // I've helped you map out the utility functions here
     const utilityMap = {
         1: search,
@@ -142,21 +138,28 @@ while (true) {
         3: analyse
     }
 
-    const username = input.question('Please log in with your credentials.\nUsername: ');
-    const password = input.question('Password: ');
+    // Prompt the user for their username and password here
 
-    const user = verifyUser(username, password);
+    // Then call the verifyUser function here to check if the login credentials are correct.
+    // Remember to work on verifyUser above for this to work
+    // verifyUser takes in username and password parameters, and returns a user object if found. Otherwise, it returns false.
 
     // If user exists and is permitted
     if (user) {
         console.clear();
         console.log('Welcome to the Terminal.');
-        const userChoice = input.questionInt(`What would you like to do?\n1. \'search\' to search for employees\n2. \'inspect\' to inspect a job's details\n3. \'analyse\' to perform analytics\n4. \'exit\' to exit\n>>> `);
+        const userChoice = input.question(`What would you like to do?\n1. \'search\' to search for employees\n2. \'inspect\' to inspect a job's details\n3. \'analyse\' to perform analytics\n4. \'exit\' to exit\n>>> `);
 
         if (userChoice == 'exit') {
             break;
         } else {
-            System(utilityMap[userChoice], user);
+            // Call the Main System function 
+            // Remember that the System function takes in a callback, and needs a user object for further authentication.
+            // The callback can be obtained via utilityMap[userChoice];
+            // e.g. if userChoice = 1, utilityMap[1] = search.
+
+            // ok now do it urself and call it here
+            
         }
 
     } else {
