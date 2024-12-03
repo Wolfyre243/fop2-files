@@ -295,6 +295,23 @@ for (const num of arr) {
 // or you may prefer
 arr.forEach(num => console.log(num));
 
+// COUNTING STUFF IN AN ARRAY EXAMPLE
+// Below is an example of how to count the number of unique items in an array with the help of an object.
+// Taken from Practical 4 Q10d
+const counterMap = {};
+
+car_sales.forEach(vehicle => {
+    if (!counterMap[vehicle.maufacturer]) {
+        counterMap[vehicle.maufacturer] = 1;
+    } else {
+        counterMap[vehicle.maufacturer]++;
+    }
+});
+
+for (const key in counterMap) {
+    console.log(`${key} number of cars ${counterMap[key]}`);
+}
+
 /*  ---------------------------------------- 0. THANK YOU  ---------------------------------------- */
 
 // YOU GUYS CAN DO IT I HAVE FAITH IN ALL OF YOU

@@ -2,7 +2,7 @@ const car_sales = require('./car_sales')
 
 function displayAll(carArr) {
     carArr.forEach(car => {
-        console.log(`${car.maufacturer} Model ${car.model} S$${car.salesPrice} S$${car.resalePrice}`)
+        console.log(`${car.maufacturer} Model ${car.model} S$${car.salesPrice} S$${car.resalePrice}`);
     })
 };
 
