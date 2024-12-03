@@ -144,6 +144,8 @@ while (true) {
     // Remember to work on verifyUser above for this to work
     // verifyUser takes in username and password parameters, and returns a user object if found. Otherwise, it returns false.
 
+    const user = verifyUser(username, password); // This will return either a user object, or undefined if the user cannot be found
+
     // If user exists and is permitted
     if (user) {
         console.clear();
