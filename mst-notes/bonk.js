@@ -273,6 +273,27 @@ users.delete(12345);
 users.has('Kun Da'); // true
 users.has('Ezra'); // false
 
+// CONSTRUCTOR FUNCTION
+/**
+ * A constructor function takes in as many parameters as you like, as shown in the example below.
+ * The purpose of a constructor function is to create standardised formats across all resultant objects.
+ */
+function Student(name, age) {
+    this.name = name;
+    this.age = age;
+
+    // This object method will be present in EVERY student object we create.
+    this.greeting = function() {
+        console.log('Hello World!');
+    }
+}
+
+const john = new Student('john', 20);
+const mary = new Student('mary', 20);
+const james = new Student('james', 20);
+
+john.greeting(); // Hello World
+
 /*  ----------------------------------------- 6. Extras  ----------------------------------------- */
 
 // LOOPING THRU AN OBJECT
