@@ -20,11 +20,7 @@ function median(arr) {
 
 // [2, 4, 6, 2, 2]
 function mode(arr) {
-    const counterMap = {
-        2: 3,
-        4: 1,
-        6: 1
-    };
+    const counterMap = {};
     arr.forEach(num => {
         if (!counterMap[num]) {
             counterMap[num] = 1;
