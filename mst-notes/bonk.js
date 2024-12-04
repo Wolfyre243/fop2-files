@@ -15,6 +15,19 @@
 
 /* ---------------------------------- 1. Hoisting & Scope ---------------------------------- */
 // TODO: Ignored for now; past MSTs don't seem to cover this for some reason.
+// Just note that var will hoist variables to the top of the code; just without its value.
+
+{
+    console.log(hello);
+    var hello = 'hello'; // This gets hoisted, but without the value
+}
+
+// That translates to:
+
+{
+    let hello;
+    console.log(hello);
+}
 
 /*  ------------------------------------- 2. Closures  ------------------------------------- */
 
