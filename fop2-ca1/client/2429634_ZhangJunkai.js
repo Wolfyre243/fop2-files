@@ -30,19 +30,19 @@ const endpointURL = 'http://localhost:8081';
 async function getAllRecords() {
     // Return a promise that resolves to the json object sent by the server
     return fetch(`${endpointURL}/allussuperstore`)
-        .then(async res => await res.json())
+        .then(res => res.json())
         .catch(err => console.log(err));
 }
 
 async function getRecordsBySegment(segment) {
     return fetch(`${endpointURL}/bysegment/${segment}`)
-        .then(async res => await res.json())
+        .then(res => res.json())
         .catch(err => console.log(err));
 }
 
 async function getRecordsByCategory(category) {
     return fetch(`${endpointURL}/bycategory/${category}`)
-        .then(async res => await res.json())
+        .then(res => res.json())
         .catch(err => console.log(err));
 }
 
@@ -106,7 +106,7 @@ async function displayStatistics() {
         );
     });
 
-    return Promise.all(promiseArr).then((resArr) => {
+    return Promise.all(promiseArr).then(() => {
         // Format and print the data
         console.log('\t Consumer\t Corporate\t Home Office');
         statArr.forEach(statistic => {
@@ -119,9 +119,14 @@ async function displayStatistics() {
 
 // TODO: Can hardcode q3?
 async function displayCategories() {
-    return new Promise((res, rej) => {
-        res(console.log('Office Supplies\nFurniture\nTechnology'));
-    });
+    return getAllRecords()
+        .then(res => {
+            res
+            .map(item => item.category)
+            .filter((value, i, arr) => arr.indexOf(value) === i)
+            .forEach((category, i) => console.log(`${i + 1}. ${category}`));
+        })
+        // ['A', 'B', 'C', 'A']
 }
 
 async function queryByCategory(category) {
@@ -141,7 +146,6 @@ async function displaySumOfSales() {
     // Initialise empty map to store sums of sales
     const categoryMap = {};
     let grandTotal = 0;
-    const categoryData = [];
 
     return getAllRecords()
         .then(res => {
@@ -155,12 +159,8 @@ async function displaySumOfSales() {
                 grandTotal += record.sales;
             });
 
-            for (const category in categoryMap) {
-                categoryData.push([category, categoryMap[category]]);
-            }
-
             console.log('Category\t\tSales');
-            categoryData
+            Object.entries(categoryMap)
                 .sort((a, b) => a[1] - b[1])
                 .forEach(categoryPair => console.log(`${categoryPair[0]}\t\t$${categoryPair[1].toFixed(2)}`));
 
