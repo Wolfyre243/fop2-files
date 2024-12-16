@@ -9,9 +9,9 @@ const myPromise = new Promise((res, rej) => {
             rej(new Error('Fail!!!'));
         }
     }, 3000);
-})
+});
 
-console.log('Script running...')
+console.log('Script running...');
 // You will understand what the then method does later on
-myPromise.then(res => console.log(res)) // This is like queuing the promise to come later on, i.e. if waiting is needed, it gets put on the side, until its resolved/rejected, then comes back in
-console.log('This should appear before the promise resolves')
+myPromise.then(res => console.log(res)); // This is like queuing the promise to come later on, i.e. if waiting is needed, it gets put on the side, until its resolved/rejected, then comes back in
+console.log('This should appear before the promise resolves');
