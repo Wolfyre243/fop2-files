@@ -6,7 +6,7 @@ async function chainMe() {
     return new Promise((res, rej) => {
         setTimeout(() => {
             const rand = Math.random();
-            if (rand < 0.99){
+            if (rand < 0.5){
                 res(randArr);
             } else {
                 rej(new Error('You unlucky bastard'));
@@ -28,10 +28,12 @@ chainMe()
         console.log('First array', res);
         return chainMe()
     })
+    .catch(err => console.log(err))
     .then((res) => {
         console.log('Second array', res);
         return chainMe()
     })
+    .catch(err => console.log(err))
     .then((res) => {
         console.log('Third array', res);
     })
