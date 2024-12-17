@@ -117,16 +117,20 @@ async function displayStatistics() {
     });
 }
 
-// TODO: Can hardcode q3?
 async function displayCategories() {
     return getAllRecords()
         .then(res => {
+            const categoryArr = [];
             res
             .map(item => item.category)
             .filter((value, i, arr) => arr.indexOf(value) === i)
-            .forEach((category, i) => console.log(`${i + 1}. ${category}`));
+            .forEach((category, i) => {
+                console.log(`${i + 1}. ${category}`);
+                categoryArr.push(category);
+            });
+
+            return categoryArr;
         })
-        // ['A', 'B', 'C', 'A']
 }
 
 async function queryByCategory(category) {
