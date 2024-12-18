@@ -2,8 +2,8 @@ const rarityMap = new Map([
     [50, 'Common'],
     [25, 'Uncommon'],
     [15, 'Rare'],
-    [9.5, 'Epic'],
-    [0.5, 'Legendary']
+    [9, 'Epic'],
+    [1, 'Legendary']
 ]);
 
 function summonPet(chanceMap) {
@@ -16,17 +16,17 @@ function summonPet(chanceMap) {
     });
 
     const randomised = Math.floor(Math.random() * totalPercentage) + 1
-    console.log('Random number:', randomised)
-    console.log(chanceTable);
+    // console.log('Random number:', randomised)
+    // console.log(chanceTable);
 
     // chanceArr.sort((a, b) => a - b);
     for (const chance in chanceTable) {
         if (randomised <= chance) {
-            console.log(chance)
-            console.log(chanceTable[chance]);
-            return;
+            return chanceTable[chance];
         }
     }
 }
 
-summonPet(rarityMap);
+for (let i = 0; i < 100; i++) {
+    console.log(`${i+1}. ${summonPet(rarityMap)}`);
+}
