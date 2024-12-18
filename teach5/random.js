@@ -16,10 +16,7 @@ function summonPet(chanceMap) {
     });
 
     const randomised = Math.floor(Math.random() * totalPercentage) + 1
-    // console.log('Random number:', randomised)
-    // console.log(chanceTable);
-
-    // chanceArr.sort((a, b) => a - b);
+    
     for (const chance in chanceTable) {
         if (randomised <= chance) {
             return chanceTable[chance];
