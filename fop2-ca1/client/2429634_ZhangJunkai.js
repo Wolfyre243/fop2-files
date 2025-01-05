@@ -64,11 +64,20 @@ async function displayFirstNRecords(n) {
     // Format and log the data to the console.
     return getAllRecords()
         .then(res => {
-            console.log('Customer ID\tCustomer Name\t\tSegment\t\tState\t\t\tProduct Name\t\t\t\t\t\t\tSales (USD)');
+            let printTable = {};
             res
             .slice(0, n) // Get the first N records
-            // TODO: Fix formatting
-            .forEach(record => console.log(`${record.customerID}\t${record.customerName}\t\t${record.segment}\t${record.state} \t\t${record.productName}\t${record.sales}`))
+            .forEach((record, i) => {
+                printTable[i+1] = {
+                    'Customer ID': record.customerID,
+                    'Customer Name': record.customerName,
+                    'Segment': record.segment,
+                    'State': record.state,
+                    'Product Name': record.productName,
+                    'Sales (USD)': record.sales
+                }
+            })
+            console.table(printTable);
         })
         .catch(err => console.log(err));
 }
@@ -139,9 +148,19 @@ async function queryByCategory(category) {
             // Error handling in case user enters an invalid category name
             if (res.length == 0) return console.log('Invalid Category!');
 
-            console.log('Order ID\tOrder Date\tProduct ID\tProduct Name\t\t\t\t\t\t\t\tCategory\t\tSales (USD)');
-            // TODO: Fix formatting
-            res.forEach(order => console.log(`${order.orderID}\t${order.orderDate}\t\t${order.productID}\t${order.productName} \t\t${order.category}\t${order.sales}`));
+            let printTable = {};
+            res.forEach((order, i) => {
+                printTable[i+1] = {
+                    'Order ID': order.orderID,
+                    'Order Date': order.orderDate,
+                    'Product ID': order.productID,
+                    'Product Name': order.productName,
+                    'Category': order.category,
+                    'Sales (USD)': order.sales
+
+                }
+            });
+            console.table(printTable);
         })
         .catch(err => console.log(err));
 }
