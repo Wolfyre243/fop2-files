@@ -197,7 +197,6 @@ async function displayHighLowCustomer() {
             const { lowest, highest } = findHighLowByProperty(res, 'profit');
 
             console.log('Lowest Sales Profit');
-            // TODO: Is the profit here meant to be negative
             console.log(`Customer Name: ${lowest.customerName}\nCategory: ${lowest.category}\nSub-Category: ${lowest.subCategory}\nProduct Name: ${lowest.productName}\nSales: $${lowest.sales}\nProfit: $${lowest.profit}\n`);
             console.log('Highest Sales Profit');
             console.log(`Customer Name: ${highest.customerName}\nCategory: ${highest.category}\nSub-Category: ${highest.subCategory}\nProduct Name: ${highest.productName}\nSales: $${highest.sales}\nProfit: $${highest.profit}`);
