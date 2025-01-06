@@ -64,7 +64,7 @@ async function displayFirstNRecords(n) {
     // Format and log the data to the console.
     return getAllRecords()
         .then(res => {
-            let printTable = {};
+            const printTable = {};
             res
             .slice(0, n) // Get the first N records
             .forEach((record, i) => {
@@ -148,7 +148,7 @@ async function queryByCategory(category) {
             // Error handling in case user enters an invalid category name
             if (res.length == 0) return console.log('Invalid Category!');
 
-            let printTable = {};
+            const printTable = {};
             res.forEach((order, i) => {
                 printTable[i+1] = {
                     'Order ID': order.orderID,
