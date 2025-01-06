@@ -157,7 +157,6 @@ async function queryByCategory(category) {
                     'Product Name': order.productName,
                     'Category': order.category,
                     'Sales (USD)': order.sales
-
                 }
             });
             console.table(printTable);
