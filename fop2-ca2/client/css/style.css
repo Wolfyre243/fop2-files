@@ -5,6 +5,7 @@
 
 .flex {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .flex-row {
@@ -21,14 +22,28 @@
 
 .gap-x-2 {
     column-gap: 2em;
+    row-gap: 2em;
 }
-
 
 info-card {
     background-color: aliceblue;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: fit-content;
     padding: 20px;
     border-radius: 1em;
+}
+
+.heading {
+    margin-bottom: 2%;
+    margin-top: 2%;
+    text-align: center;
+}
+
+.navbar {
+    background-color: rgb(79, 255, 231);
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

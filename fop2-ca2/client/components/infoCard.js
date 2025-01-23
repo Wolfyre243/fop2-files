@@ -1,8 +1,7 @@
-const template = document.createElement("template");
+const card_template = document.createElement("template");
 
-template.innerHTML = `
+card_template.innerHTML = `
 <style>
-
 .card-header {
     display: flex;
     flex-direction: column;
@@ -13,7 +12,6 @@ template.innerHTML = `
 }
 </style>
 
-
 <div class="card-header">
     <h1>Customer Name</h1>
     <h2 id="customer_name"></h2>
@@ -23,16 +21,13 @@ template.innerHTML = `
     <p id="quantity">Quantity:</p>
     <p id="profit">Profit US$:</p>
 </div>
-
-
 `;
 
 class InfoCard extends HTMLElement {
     constructor() {
         super();
         // this.shadow = this.attachShadow({ mode: "open" });
-        this.appendChild(template.content.cloneNode(true));
-        this.querySelector("#customer_name").innerText = 'John Doe';
+        // this.appendChild(template.content.cloneNode(true));
     }
 
     static get observedAttributes() {
@@ -43,17 +38,14 @@ class InfoCard extends HTMLElement {
     attributeChangedCallback(property, oldValue, newValue) {
         if (oldValue === newValue) return;
         this[property] = newValue;
-        this.querySelector("#customer_name").innerText = this.customer_name;
-        this.querySelector("#sales").innerText = this.sales;
-        this.querySelector("#quantity").innerText = this.quantity;
-        this.querySelector("#profit").innerText = this.profit;
     }
 
     connectedCallback() {
+        this.appendChild(card_template.content.cloneNode(true));
         this.querySelector("#customer_name").innerText = this.customer_name;
-        this.querySelector("#sales").innerText = this.sales;
-        this.querySelector("#quantity").innerText = this.quantity;
-        this.querySelector("#profit").innerText = this.profit;
+        this.querySelector("#sales").innerText = `Sales: $${this.sales}`;
+        this.querySelector("#quantity").innerText = `Quantity: ${this.quantity}`;
+        this.querySelector("#profit").innerText = `Profit US$: $${this.profit}`;
     }
 }
 

@@ -8,15 +8,18 @@
     <link rel="stylesheet" href="./css/style.css">
     
     <script src="./components/infoCard.js" defer></script>
+    <script src="./components/navbar.js" defer></script>
 
 </head>
 <body>
     <main>
-        <h1>First 10 stuff</h1>
-        <div class="flex flex-row gap-x-2">
-            <info-card customer_name="Mary" sales="90"></info-card>
-            <info-card customer_name="Mary" sales="90"></info-card>
+        <nav-bar></nav-bar>
+        <h1 class="heading">First 10 Records</h1>
+        <div id="dataList" class="flex flex-row gap-x-2">
         </div>
     </main>
+
+    <!-- Scripts -->
+     <script src="./scripts/showFirst10Data.js"></script>
 </body>
 </html>
