@@ -1,7 +1,7 @@
 const template = document.createElement('template');
 
 template.innerHTML = `
-<div class='d-flex flex-row'>
+<div class='d-flex flex-row ml-auto w-fit'>
     <p id='content' class='p-2'></p>
     <input type='text' class='form-control w-25 h-25'>
 </div>
@@ -10,9 +10,9 @@ template.innerHTML = `
 class CustomTextbox extends HTMLElement {
     constructor(){
         super();
-        this.shadow = this.attachShadow({ mode:"open" });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
-        this.shadowRoot.querySelector("#content").innerText = "World";
+        // this.shadow = this.attachShadow({ mode:"open" });
+        this.appendChild(template.content.cloneNode(true));
+        this.querySelector("#content").innerText = "World";
     }
 
     static get observedAttributes(){
@@ -26,7 +26,7 @@ class CustomTextbox extends HTMLElement {
     }
 
     connectedCallback(){
-        this.shadowRoot.querySelector("#content").innerText = this.content;
+        this.querySelector("#content").innerText = this.content;
     }
 }
 
