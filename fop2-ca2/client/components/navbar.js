@@ -23,9 +23,9 @@ navbar_template.innerHTML = `
 <nav class="navbar">
     <h1>US Superstore Data</h1>
     <div class="links">
-        <nav-button href="#" label="Home"></nav-button>
-        <nav-button href="#" label="Home"></nav-button>
-        <nav-button href="#" label="Home"></nav-button>
+        <nav-button href="index.html" label="Home"></nav-button>
+        <nav-button href="first10.html" label="Display 10"></nav-button>
+        <nav-button href="filtered.html" label="Filtered"></nav-button>
     </div>
 </nav>
 `;
