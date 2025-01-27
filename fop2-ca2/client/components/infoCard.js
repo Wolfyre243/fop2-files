@@ -13,7 +13,6 @@ card_template.innerHTML = `
 </style>
 
 <div class="card-header">
-    <h1>Customer Name</h1>
     <h2 id="customer_name"></h2>
 </div>
 <div>

@@ -15,7 +15,7 @@ navbar_template.innerHTML = `
 .links {
     display: flex;
     flex-direction: row;
-    column-gap: 2em;
+    column-gap: 0.5em;
     height: fit-content;
 }
 </style>
@@ -35,10 +35,10 @@ navbutton_template.innerHTML = `
 .nav-button {
     color: white;
     background-color: rgb(40, 40, 40);
-    padding: 0.5em;
+    padding: 0.7em;
     width: fit-content;
     text-decoration: none;
-    border-radius: 10%;
+    border-radius: 10px;
 }
 </style>
 
