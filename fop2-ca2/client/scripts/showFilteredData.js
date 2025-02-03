@@ -17,14 +17,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    //TODO: Make this dynamic
     fetch(`http://localhost:8081/category`)
         .then(res => res.json())
         .then(categoryArr => {
             categoryArr.forEach(category => {
                 const categoryBtn = document.createElement('div');
                 categoryBtn.innerHTML = `<button id="${category}Filter" class="navbtn">${category}</button>`
-
                 categoryNav.appendChild(categoryBtn);
                 
                 categoryBtn.addEventListener('click', () => {
