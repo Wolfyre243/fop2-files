@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    const categoryNav = document.getElementById('categoryNav');
+
     const displayItemsCallback = (data, elemId) => {
         const dataList = document.getElementById(elemId);
         dataList.innerHTML = ''; // Reset data
@@ -15,30 +17,22 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    //TODO: Make this dynamic
-    const categoryArr = ['Furniture', 'Office Supplies', 'Technology'];
-
-    categoryArr.forEach(category => {
-        document
-            .getElementById(`${category}Filter`)
-            .addEventListener('click', () => {
-                const categoryHeader = document.getElementById('categoryHeader');
-                categoryHeader.innerText = category;
-                fetch(`http://localhost:8081/bycategory/${category}`)
-                    .then(res => res.json())
-                    .then(data => displayItemsCallback(data, "dataList"));
-            })
-    });
-
-    // fetch('http://localhost:8081/bycategory/Furniture')
-    //     .then(res => res.json())
-    //     .then(data => displayItemsCallback(data, "furnitureList"));
-
-    // fetch('http://localhost:8081/bycategory/Office%20Supplies')
-    //     .then(res => res.json())
-    //     .then(data => displayItemsCallback(data, "officeList"));
-
-    // fetch('http://localhost:8081/bycategory/Technology')
-    //     .then(res => res.json())
-    //     .then(data => displayItemsCallback(data, "technologyList"));
+    fetch(`http://localhost:8081/category`)
+        .then(res => res.json())
+        .then(categoryArr => {
+            categoryArr.forEach(category => {
+                const categoryBtn = document.createElement('div');
+                categoryBtn.innerHTML = `<button id="${category}Filter" class="navbtn">${category}</button>`
+                categoryNav.appendChild(categoryBtn);
+                
+                categoryBtn.addEventListener('click', () => {
+                    // categoryBtn.classList.add('active');
+                    const categoryHeader = document.getElementById('categoryHeader');
+                    categoryHeader.innerText = category;
+                    fetch(`http://localhost:8081/bycategory/${category}`)
+                        .then(res => res.json())
+                        .then(data => displayItemsCallback(data, "dataList"));
+                });
+            });
+        });
 });
