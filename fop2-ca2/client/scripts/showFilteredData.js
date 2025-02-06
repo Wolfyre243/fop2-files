@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
             displayItem.quantity = item.quantity;
             displayItem.profit = (item.profit).toFixed(2);
 
-            dataList.appendChild(displayItem);
+            dataList.appendChild(displayItem);9
         });
     }
 
