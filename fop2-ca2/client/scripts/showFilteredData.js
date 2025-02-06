@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const limit = parseInt(localStorage.getItem('limit')) ?? localStorage.setItem('limit', 15);
 
     const categoryNav = document.getElementById('categoryNav');
 
@@ -6,16 +7,27 @@ document.addEventListener("DOMContentLoaded", function () {
         const dataList = document.getElementById(elemId);
         dataList.innerHTML = ''; // Reset data
 
-        data.slice(0,30).forEach((item) => {
+        data.slice(0, limit).forEach((item) => {
             const displayItem = document.createElement("info-card");
             displayItem.customer_name = item.customerName;
-            displayItem.sales = (item.sales).toFixed(2)
+            displayItem.sales = (item.sales).toFixed(2);
             displayItem.quantity = item.quantity;
             displayItem.profit = (item.profit).toFixed(2);
-
-            dataList.appendChild(displayItem);9
+            dataList.appendChild(displayItem);
         });
     }
+
+    document.getElementById('loadMoreBtn').addEventListener('click', () => {
+        console.log('clicked!')
+        localStorage.setItem('limit', (limit + 15));
+        window.location.reload();
+    });
+
+    document.getElementById('resetBtn').addEventListener('click', () => {
+        console.log('clicked!')
+        localStorage.setItem('limit', 15);
+        window.location.reload();
+    });
 
     fetch(`http://localhost:8081/category`)
         .then(res => res.json())
