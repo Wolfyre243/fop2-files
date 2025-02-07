@@ -17,18 +17,21 @@
     <script src="./components/navbar.js" defer></script>
 
 </head>
-<body>
-    <main>
+<body style="height: 100vh;">
+    <main style="height: 100%; display: flex; flex-direction: column;">
         <nav-bar></nav-bar>
-        <div>
-            <div>
-                <h1>Display US Superstore</h1>
-                <a href="./first10.html">US Superstore data using Web Component</a>
+        <div style="display: flex; flex-direction: column; height: 100%;">
+            <div style="margin: auto; display: flex; width: 100%; justify-content: center;">
+                <div style="margin-right: 2%; text-align: center;">
+                    <h1 style="margin-bottom: 10px;">Display US Superstore</h1>
+                    <a href="./first10.html">US Superstore data using Web Component</a>
+                </div>
+                <div style="text-align: center;">
+                    <h1 style="margin-bottom: 10px;">US Superstore By Category</h1>
+                    <a href="./filtered.html">Filtered by category</a>
+                </div>
             </div>
-            <div>
-                <h1>US Superstore By Category</h1>
-                <a href="./filtered.html">Filtered by category</a>
-            </div>
+            
         </div>
     </main>
 </body>
