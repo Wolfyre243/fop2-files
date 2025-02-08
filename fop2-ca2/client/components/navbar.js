@@ -1,3 +1,9 @@
+/**
+    * Name: Zhang Junkai
+    * Class: DIT/1B/02
+    * Admin No: 2429634
+ */
+
 const navbar_template = document.createElement("template");
 const navbutton_template = document.createElement("template");
 

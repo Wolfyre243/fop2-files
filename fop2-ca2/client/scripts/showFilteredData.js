@@ -1,3 +1,9 @@
+/**
+    * Name: Zhang Junkai
+    * Class: DIT/1B/02
+    * Admin No: 2429634
+ */
+
 document.addEventListener("DOMContentLoaded", function () {
     const limit = parseInt(localStorage.getItem('limit')) ?? localStorage.setItem('limit', 15);
 
@@ -8,8 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
         dataList.innerHTML = ''; // Reset data
 
         data.slice(0, limit).forEach((item) => {
-            const displayItem = document.createElement("info-card");
-            displayItem.customer_name = item.customerName;
+            const displayItem = document.createElement("product-card");
+            displayItem.product_name = item.productName;
             displayItem.sales = (item.sales).toFixed(2);
             displayItem.quantity = item.quantity;
             displayItem.profit = (item.profit).toFixed(2);
@@ -18,13 +24,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     document.getElementById('loadMoreBtn').addEventListener('click', () => {
-        console.log('clicked!')
         localStorage.setItem('limit', (limit + 15));
         window.location.reload();
     });
 
     document.getElementById('resetBtn').addEventListener('click', () => {
-        console.log('clicked!')
         localStorage.setItem('limit', 15);
         window.location.reload();
     });
